@@ -6,11 +6,27 @@ const Media = require('../models/media.js')
 
 //new router
 router.get('/new', (req, res)=>{
-    res.render('media/new.ejs', { currentUser: req.session.currentUser });
+    res.render('media/new.ejs');
 });
 
 router.post('/', (req, res)=>{
-   Media.create(req.body, (error, createdFruit)=>{
+  if(req.body.movie === 'on'){
+    req.body.movie = true;
+   } else {
+    req.body.movie = false;
+   }
+   if (req.body.released === 'on') {
+     req.body.released = true;
+   } else {
+     req.body.released = false;
+   }
+   if (req.body.watched === 'on') {
+     req.body.watched = true;
+   } else {
+     req.body.watched = false;
+   }
+
+   Media.create(req.body, (error, createdMedia)=>{
        res.redirect('/media')
    });
 });

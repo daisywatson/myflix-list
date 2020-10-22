@@ -1,0 +1,20 @@
+<%- include('../partials/header.ejs') %>
+
+<h1>New Media page</h1>
+<form action="/media" method="POST">
+    <p> Name: <input type="text" name="name" /> <p>
+    <p> This is a movie: <input type="checkbox" name="movie" /> </p>
+    <p> Link to watch: <input type="URL" name="link" /> </p>
+    <p> Image: <input type="URL" name="img" /> </p>
+    <p> Release date: <input type="date" name="date" /> </p>
+    <p> This show's season has fully premiered/movie has been released digitally:
+      <input type="checkbox" name="movie" />
+    </p>
+    <p> Genre: <input type="text" name="genre" /> <p>
+    <p> Other notes: <input type="textarea" name="notes" /> <p>
+    <p> Already finished watching this movie/TV show:
+      <input type="checkbox" name="watched" /> </p>
+    <input type="submit" name="" value="Add New Media"/>
+</form>
+
+<%- include('../partials/footer.ejs') %>

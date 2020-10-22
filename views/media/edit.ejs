@@ -1,0 +1,32 @@
+<%- include('../partials/header.ejs') %>
+
+<h1>Edit Media page</h1>
+<form action="/media/<%=media.id%>?_method=PUT"  method="POST">
+    <p> Name: <input type="text" name="name" value="<%=media.name%>"/> <p>
+    <p> This is a movie: <input type="checkbox" name="movie"
+      <% if (media.movie === true) { %>
+        checked
+        <% } %>
+      /> </p>
+      <p> Link to watch: <input type="URL" name="link" value="<%=media.link%>"/> </p>
+      <p> Image: <input type="URL" name="img" value="<%=media.img%>" /> </p>
+      <p> Release date: <input type="date" name="date" value="<%=media.date%>" /> </p>
+      <p> This show's season has fully premiered/movie has been released:
+        <input type="checkbox" name="released"
+        <% if (media.released === true) { %>
+          checked
+          <% } %>
+        /></p>
+      <p> Genre: <input type="text" name="genre" value="<%=media.genre%>" /> <p>
+      <p> Other notes: <input type="textarea" name="notes" value="<%=media.notes%>" /> <p>
+      <p> Already finished watching this movie/TV show:
+        <input type="checkbox" name="watched"
+        <% if (media.watched === true) { %>
+          checked
+          <% } %>
+        /> </p>
+
+    <input type="submit" name="" value="Submit Changes"/>
+</form>
+
+<%- include('../partials/footer.ejs') %>

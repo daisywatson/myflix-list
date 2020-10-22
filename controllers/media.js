@@ -58,4 +58,38 @@ router.delete('/:id', (req, res)=>{
 	res.redirect('/media');
 });
 
+//edit route
+router.get('/:id/edit', (req, res)=>{
+    Media.findById(req.params.id, (err, foundMedia)=>{
+        res.render(
+    		'media/edit.ejs',
+    		{
+    			media: foundMedia
+    		}
+    	);
+    });
+});
+
+router.put('/:id', (req, res)=>{
+  if(req.body.movie === 'on'){
+    req.body.movie = true;
+  } else {
+    req.body.movie = false;
+  }
+  if (req.body.released === 'on') {
+    req.body.released = true;
+  } else {
+    req.body.released = false;
+  }
+  if (req.body.watched === 'on') {
+    req.body.watched = true;
+  } else {
+    req.body.watched = false;
+  }
+
+  Media.findByIdAndUpdate(req.params.id, req.body, {new:true}, (err, updatedModel)=>{
+    res.redirect('/media/' + req.params.id);
+  });
+});
+
 module.exports = router

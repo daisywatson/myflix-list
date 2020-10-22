@@ -31,6 +31,9 @@
         <% } %>
 
     <nav>
+      <a href="/media/<%= media.id %>/edit">Edit</a>
+      <form action="/media/<%= media.id %>?_method=DELETE" method="POST">
+      <p> <input type="submit" value="DELETE"/> </p>
       <a href="/media">Back to My List</a>
     </nav>
 

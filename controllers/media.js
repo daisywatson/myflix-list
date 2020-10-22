@@ -50,4 +50,12 @@ router.get('/:id', (req, res)=>{
   });
 });
 
+//delete route
+router.delete('/:id', (req, res)=>{
+  Media.findByIdAndRemove(req.params.id, (err, foundMedia) => {
+    if(err) console.log(err);
+  });
+	res.redirect('/media');
+});
+
 module.exports = router

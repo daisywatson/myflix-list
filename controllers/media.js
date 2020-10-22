@@ -41,4 +41,13 @@ router.get('/', (req, res)=>{
     });
 });
 
+//show route
+router.get('/:id', (req, res)=>{
+  Media.findById(req.params.id, (err, foundMedia)=>{
+    res.render('media/show.ejs', {
+      media:foundMedia,
+    });
+  });
+});
+
 module.exports = router

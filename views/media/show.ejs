@@ -1,0 +1,37 @@
+<%- include('../partials/header.ejs') %>
+
+<h1> <%=media.name %> </h1>
+
+<% if(media.movie === true){ %>
+  <p> Movie </p>
+  <% } else { %>
+    <p> TV Show </p>
+    <% } %>
+
+    <img src="<%=media.img%>" alt="media image">
+
+    <p> <a href="<%=media.link%>">Link to Watch</a> </p>
+
+    <p><%=media.date%> </p>
+
+    <% if(media.released === true){ %>
+      <p> This has been released. </p>
+      <% } else { %>
+        <p> This has not yet been released. </p>
+        <% } %>
+
+    <p>Genre: <%=media.genre%> </p>
+
+    <p>Notes: <%=media.notes%> </p>
+
+    <% if(media.watched === true){ %>
+      <p> Already watched this. </p>
+      <% } else { %>
+        <p> Have not yet watched this. </p>
+        <% } %>
+
+    <nav>
+      <a href="/media">Back to My List</a>
+    </nav>
+
+    <%- include('../partials/footer.ejs') %>

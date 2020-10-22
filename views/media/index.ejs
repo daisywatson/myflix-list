@@ -1,0 +1,18 @@
+<%- include('../partials/header.ejs') %>
+
+<h1>My TV Shows and Movies</h1>
+<nav>
+  <a href="/media/newmovie">Add New Movie</a>
+</nav>
+
+<h2> Movies </h2>
+<ul>
+  <% for(let i = 0; i < movies.length; i++){ %>
+    <li>
+      <h1> <%= movies[i].name %> </h1>
+      <a href="/media/<%=movies[i].id %>">More Details</a>
+    </li>
+    <% } %>
+  </ul>
+
+<%- include('../partials/footer.ejs') %>

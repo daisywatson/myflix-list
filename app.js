@@ -14,13 +14,13 @@ app.use(methodOverride('_method'));
 app.use(express.static('public'));
 
 //Session
-// app.use(
-//   session({
-//     secret: process.env.SECRET,
-//     resave: false,
-//     saveUninitialized: false
-//   })
-// )
+app.use(
+  session({
+    secret: process.env.SECRET,
+    resave: false,
+    saveUninitialized: false
+  })
+)
 
 mongoose.connect(mongodbURI, { useNewUrlParser: true});
 mongoose.connection.once('open', ()=> {
@@ -31,9 +31,15 @@ mongoose.connection.once('open', ()=> {
 const mediaController = require('./controllers/media.js')
 app.use('/media', mediaController)
 
+const usersController = require('./controllers/users.js')
+app.use('/users', usersController)
+
+const sessionsController = require('./controllers/sessions.js')
+app.use('/sessions', sessionsController)
+
 //Home route
 app.get('/', (req, res) => {
-  res.render('media/home.ejs')
+  res.render('media/home.ejs', {currentUser: req.session.currentUser})
 })
 
 app.listen(PORT, ()=>{

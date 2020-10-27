@@ -4,9 +4,18 @@ const Movies = require('../models/movies.js')
 const Shows = require('../models/tvshows.js')
 const Media = require('../models/media.js')
 
+//user authentication
+const isAuthenticated = (req, res, next) =>  {
+	if (req.session.currentUser) {
+		return next()
+	} else {
+		res.redirect('/sessions/new')
+	}
+}
+
 //new router
 router.get('/new', (req, res)=>{
-    res.render('media/new.ejs');
+    res.render('media/new.ejs', { currentUser: req.session.currentUser });
 });
 
 router.post('/', (req, res)=>{
@@ -36,7 +45,8 @@ router.post('/', (req, res)=>{
 router.get('/', (req, res)=>{
     Media.find({}, (error, allMedia)=>{
         res.render('media/index.ejs', {
-            movies: allMedia
+            movies: allMedia,
+            currentUser: req.session.currentUser
         });
     });
 });

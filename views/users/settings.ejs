@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+    </head>
+    <body>
+        <h1>Delete Account</h1>
+        <form action="/users/settings/<%= user.id %>?_method=DELETE" method="POST">
+        <p> <input type="submit" value="DELETE"/> </p>
+    </body>
+</html>

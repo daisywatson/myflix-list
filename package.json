@@ -10,6 +10,12 @@
     "type": "git",
     "url": "git+https://github.com/daisywatson/myflix-list.git"
   },
+  "scripts": {
+    "start": "node app.js"
+  },
+  "engines": {
+    "node": "14.10.1"
+  },
   "author": "",
   "license": "ISC",
   "bugs": {

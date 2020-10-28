@@ -1,0 +1,27 @@
+<%- include('../partials/header.ejs') %>
+
+<% if (currentUser) { %>
+  <form action="/sessions?_method=DELETE" method="POST">
+    <input type="submit" value="Log Out"/>
+  </form>
+
+  <a href="/users/settings/<%=currentUser._id %>">Settings</a>
+  <% } %>
+ 
+  <h1>My TV Shows and Movies</h1>
+  <nav>
+    <a href="/media/new">Add New Movie</a>
+  </nav>
+
+  <h2> Movies </h2>
+  <ul>
+    <% for(let i = 0; i < movies.length; i++){ %>
+      <% if (movies[i].userID === viewUserID) { %>
+          <li>
+            <h1> <%= movies[i].name %> </h1>
+            </li>
+          <% } %>
+        <% } %>
+      </ul>
+
+      <%- include('../partials/footer.ejs') %>

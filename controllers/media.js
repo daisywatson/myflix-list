@@ -3,6 +3,7 @@ const router = express.Router()
 const Movies = require('../models/movies.js')
 const Shows = require('../models/tvshows.js')
 const Media = require('../models/media.js')
+const Users = require('../models/users.js')
 
 //user authentication
 const isAuthenticated = (req, res, next) =>  {
@@ -51,6 +52,17 @@ router.get('/', (req, res)=>{
             currentUser: req.session.currentUser
         });
     });
+});
+
+//list shown to other users (not editable/deletable)
+router.get('/users/:id', (req, res)=>{
+    Media.find({}, (error, allMedia)=>{
+    res.render('media/index-otheruser.ejs', {
+      movies: allMedia,
+      currentUser: req.session.currentUser,
+      viewUserID: req.params.id
+    });
+  });
 });
 
 //show route

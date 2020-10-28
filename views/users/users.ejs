@@ -9,7 +9,8 @@
         <ul>
           <% for(let i = 0; i < users.length; i++){ %>
             <li>
-              <h2> <%= users[i].username %> </h2>
+              <!-- <h2> <%= users[i].username %> </h2> -->
+              <a href="/media/users/<%=users[i].id %>"> <%= users[i].username %> </a>
             </li>
             <% } %>
           </ul>

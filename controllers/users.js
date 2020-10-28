@@ -3,10 +3,12 @@ const express = require('express')
 const users = express.Router()
 const User = require('../models/users.js')
 
+//create new user
 users.get('/new', (req, res) => {
   res.render('users/new.ejs', {currentUser: req.session.currentUser})
 })
 
+//show list of users
 users.get('/userlist', (req, res) => {
   User.find({}, (error, allUsers)=>{
       res.render('users/users.ejs', {users: allUsers});

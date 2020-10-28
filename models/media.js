@@ -9,7 +9,8 @@ const mediaSchema = new mongoose.Schema({
     released: { type: Boolean},
     genre: {type: String},
     notes: {type: String},
-    watched: {type: Boolean}
+    watched: {type: Boolean},
+    userID: {type: String}
 });
 
 const Media = mongoose.model('Media', mediaSchema);

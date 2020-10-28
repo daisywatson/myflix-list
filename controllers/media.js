@@ -35,6 +35,8 @@ router.post('/', (req, res)=>{
      req.body.watched = false;
    }
 
+   req.body.userID = req.session.currentUser._id
+
    Media.create(req.body, (error, createdMedia)=>{
        res.redirect('/media')
    });

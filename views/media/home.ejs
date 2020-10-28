@@ -1,17 +1,12 @@
 <%- include('../partials/header.ejs') %>
+<%- include('../partials/nav.ejs') %>
+
 
 <h1>Myflix List<h1>
   <h2>Keep track of the TV shows and movies you're watching </h2>
 
   <% if (currentUser) { %>
     Welcome <%= currentUser.username %>
-    <a href="/media">My Media</a>
-    <form action="/sessions?_method=DELETE" method="POST">
-      <input type="submit" value="Log Out"/>
-    </form>
-    <% } else { %>
-      <a href="/users/new">Sign Up</a>
-      <a href="/sessions/new">Log In</a>
       <% } %>
 
       <a href="/users/userlist">See Users' Lists</a>

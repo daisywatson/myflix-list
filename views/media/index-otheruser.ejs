@@ -1,4 +1,6 @@
 <%- include('../partials/header.ejs') %>
+<%- include('../partials/nav.ejs') %>
+
 
 <% if (currentUser) { %>
   <form action="/sessions?_method=DELETE" method="POST">
@@ -7,7 +9,7 @@
 
   <a href="/users/settings/<%=currentUser._id %>">Settings</a>
   <% } %>
- 
+
   <h1>My TV Shows and Movies</h1>
   <nav>
     <a href="/media/new">Add New Movie</a>

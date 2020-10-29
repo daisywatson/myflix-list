@@ -1,6 +1,9 @@
 # myflix-list
 An web-based app for keeping track of the TV shows and movies you watch.
 
+### Live App
+https://myflix-list.herokuapp.com/
+
 ### Technologies Used
 Node.js, Mongoose, Express and EJS
 
@@ -8,7 +11,7 @@ Node.js, Mongoose, Express and EJS
 Basic CRUD functionality was first created, followed by user accounts, sessions, and then displaying of individual lists for individual users. 
 
 ### Unsolved Problems 
-Some routes will throw errors if they're accessed via typed-in URL instead of the link buttons in the app because the session hasn't been checked. Those routes should redirect instead.
+Some routes will throw errors if they're accessed via typed-in URL instead of the link buttons in the app because the session hasn't been checked. Those routes should redirect instead. Also, there's no error checking for users creating duplicate usernames that have already been created. 
 
 ### Forthcoming features
 - User will be logged out after deleting account

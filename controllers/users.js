@@ -11,7 +11,8 @@ users.get('/new', (req, res) => {
 //show list of users
 users.get('/userlist', (req, res) => {
   User.find({}, (error, allUsers)=>{
-      res.render('users/users.ejs', {users: allUsers});
+      res.render('users/users.ejs', {users: allUsers,
+      currentUser: req.session.currentUser});
   });
 })
 
@@ -30,6 +31,7 @@ users.get('/settings/:id', (req, res)=>{
   User.findById(req.params.id, (err, foundUser)=>{
     res.render('users/settings.ejs', {
       user:foundUser,
+      currentUser: req.session.currentUser
     });
   });
 });

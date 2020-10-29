@@ -1,19 +1,18 @@
 <nav>
-  <ul class>
-    <ul>
-          <li><a href="/">Home</a></li>
+    <ul class="navbar">
+          <li class="nav"><a href="/">Home</a></li>
         <% if (currentUser) { %>
-          <li><%= currentUser.username %></li>
-          <li><a href="/media">My Media</a></li>
-            <li>
+          <li class="nav"><a href="/media">My Media List</a></li>
+          <li class="nav"><%= currentUser.username %></li>
+            <li class="nav">
               <form action="/sessions?_method=DELETE" method="POST">
-                <input type="submit" value="Log Out" class="btn-small red" />
+                <input type="submit" value="Log Out" class="submit" />
               </form>
             </li>
-            <li><a href="/users/settings/<%=currentUser._id %>">Settings</a></li>
+            <!-- <li><a href="/users/settings/<%=currentUser._id %>">Settings</a></li> -->
             <%} else { %>
-              <li><a href="users/new">Sign Up</a></li>
-              <li><a href="sessions/new">Log In</a></li>
+              <li class="nav"><a href="users/new">Sign Up</a></li>
+              <li class="nav"><a href="sessions/new">Log In</a></li>
                 <% } %>
               </ul>
             </nav>

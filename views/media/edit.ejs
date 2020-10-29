@@ -1,5 +1,7 @@
 <%- include('../partials/header.ejs') %>
+<%- include('../partials/nav.ejs') %>
 
+<div class="container">
 <h1>Edit Media page</h1>
 <form action="/media/<%=media.id%>?_method=PUT"  method="POST">
     <p> Name: <input type="text" name="name" value="<%=media.name%>"/> <p>
@@ -10,7 +12,6 @@
       /> </p>
       <p> Link to watch: <input type="URL" name="link" value="<%=media.link%>"/> </p>
       <p> Image: <input type="URL" name="img" value="<%=media.img%>" /> </p>
-      <p> Release date: <input type="date" name="date" value="<%=media.date%>" /> </p>
       <p> This show's season has fully premiered/movie has been released:
         <input type="checkbox" name="released"
         <% if (media.released === true) { %>
@@ -26,7 +27,9 @@
           <% } %>
         /> </p>
 
-    <input type="submit" name="" value="Submit Changes"/>
+    <input type="submit" name="" value="Submit Changes" class="btn btn-danger"/>
 </form>
+
+</div>
 
 <%- include('../partials/footer.ejs') %>

@@ -1,0 +1,55 @@
+body {
+  background-color: #000;
+  color: #fff;
+}
+
+.navbar {
+  text-align: right;
+}
+
+.nav {
+  list-style: none;
+  display: inline;
+  font-size: 20px;
+}
+
+li {
+    list-style: none;
+}
+
+nav {
+  display: inline;
+}
+
+form {
+  display: inline;
+  padding: 0;
+}
+
+.submit {
+  background: none;
+  border: none;
+  color: #FF0000;
+  cursor: pointer;
+  padding: 0;
+}
+
+.submit:hover {
+   text-decoration: underline;
+}
+
+a, a:hover {
+  color: #FF0000;
+}
+
+input {
+  margin: 10px;
+}
+
+.center {
+  text-align: center;
+}
+
+img {
+  padding-bottom: 20px;
+}

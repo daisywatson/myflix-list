@@ -1,10 +1,12 @@
 <%- include('../partials/header.ejs') %>
 
-        <h1>User Sign In page</h1>
+<div class="center">
+        <h1>User Sign In Page</h1>
         <form action="/sessions" method="POST">
             Username: <input type="text" name="username" /><br/>
             Password: <input type="password" name="password" /><br/>
-            <input type="submit" name="" value="User sign in"/>
+            <input type="submit" name="" value="User sign in" class="btn btn-danger"/>
         </form>
+</div>
 
 <%- include('../partials/footer.ejs') %>

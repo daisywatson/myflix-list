@@ -2,13 +2,13 @@
 <%- include('../partials/nav.ejs') %>
 
 
+<div class="center">
 <h1>Myflix List<h1>
   <h2>Keep track of the TV shows and movies you're watching </h2>
 
   <% if (currentUser) { %>
-    Welcome <%= currentUser.username %>
+    <a href="/users/userlist">See Users' Lists</a>
       <% } %>
-
-      <a href="/users/userlist">See Users' Lists</a>
+  </div>
 
       <%- include('../partials/footer.ejs') %>

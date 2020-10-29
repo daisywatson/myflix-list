@@ -14,10 +14,10 @@ sessions.post('/', (req, res) => {
   User.findOne({ username: req.body.username}, (err, foundUser) => {
     if (err) {
       console.log(err);
-      res.send('oops the db had problems')
+      res.send('Database error')
     } else if (!foundUser) {
       //if found user is undefined/null (not found)
-      res.send('<a href="/">Sorry, no user found </a>')
+      res.send('<a href="/">User not found </a>')
     } else {
       //the user is found
 
@@ -29,7 +29,7 @@ sessions.post('/', (req, res) => {
         res.redirect('/')
       } else {
         //the passwords do not match
-        res.send('<a href="/"> password does not match </a>')
+        res.send('<a href="/"> Wrong password </a>')
       }
     }
 

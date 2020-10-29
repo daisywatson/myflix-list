@@ -1,29 +1,41 @@
 <%- include('../partials/header.ejs') %>
 <%- include('../partials/nav.ejs') %>
 
-<% if (currentUser) { %>
-  <form action="/sessions?_method=DELETE" method="POST">
-    <input type="submit" value="Log Out"/>
-  </form>
-  <% } %>
+<div class="container">
+  <h1>My TV Shows and Movies List</h1>
 
-  <a href="/users/settings/<%=currentUser._id %>">Settings</a>
+  <p><a href="/media/new">Add New Movie/TV Show</a></p>
 
-  <h1>My TV Shows and Movies</h1>
-  <nav>
-    <a href="/media/new">Add New Movie</a>
-  </nav>
-
-  <h2> Movies </h2>
+  <h2> To Be Watched </h2>
   <ul>
     <% for(let i = 0; i < movies.length; i++){ %>
-      <% if (movies[i].userID === currentUser._id) { %>
+      <% if (movies[i].userID === currentUser._id ) { %>
+        <% if (movies[i].watched === false) {%>
           <li>
-            <h1> <%= movies[i].name %> </h1>
-              <a href="/media/<%=movies[i].id %>">More Details</a>
+            <h3> <%= movies[i].name %> </h3>
+              <img src="<%=movies[i].img%>" alt="media image">
+              <p><a href="/media/<%=movies[i].id %>">More Details</a><p>
             </li>
+            <% } %>
           <% } %>
         <% } %>
       </ul>
+
+  <h2> Already Watched </h2>
+  <ul>
+    <% for(let j = 0; j < movies.length; j++){ %>
+      <% if (movies[j].userID === currentUser._id) { %>
+          <% if (movies[j].watched === true) {%>
+          <li>
+            <h3> <%= movies[j].name %> </h3>
+            <img src="<%=movies[j].img%>" alt="media image">
+              <p><a href="/media/<%=movies[j].id %>">More Details</a><p>
+            </li>
+              <% } %>
+          <% } %>
+        <% } %>
+      </ul>
+
+</div>
 
       <%- include('../partials/footer.ejs') %>

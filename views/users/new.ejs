@@ -1,15 +1,12 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <title></title>
-    </head>
-    <body>
+<%- include('../partials/header.ejs') %>
+
+<div class="center">
         <h1>New Users page</h1>
         <form action="/users" method="POST">
             Username: <input type="text" name="username" /><br/>
             Password: <input type="password" name="password" /><br/>
-            <input type="submit" name="" value="Create User"/>
+            <input type="submit" name="" value="Create User" class="btn btn-danger"/>
         </form>
-    </body>
-</html>
+</div>
+
+  <%- include('../partials/footer.ejs') %>

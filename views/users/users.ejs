@@ -1,18 +1,16 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <title></title>
-    </head>
-    <body>
-        <h1>List of Users</h1>
-        <ul>
-          <% for(let i = 0; i < users.length; i++){ %>
-            <li>
-              <!-- <h2> <%= users[i].username %> </h2> -->
-              <a href="/media/users/<%=users[i].id %>"> <%= users[i].username %> </a>
-            </li>
-            <% } %>
-          </ul>
-    </body>
-</html>
+<%- include('../partials/header.ejs') %>
+<%- include('../partials/nav.ejs') %>
+
+<div class="container">
+<h1>List of Users</h1>
+<ul>
+  <% for(let i = 0; i < users.length; i++){ %>
+    <li>
+      <a href="/media/users/<%=users[i].id %>"> <%= users[i].username %> </a>
+    </li>
+    <% } %>
+  </ul>
+
+</div>
+
+  <%- include('../partials/footer.ejs') %>
